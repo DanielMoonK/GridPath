@@ -18,4 +18,9 @@ public class Location
     {
         return theCol;
     }
+
+    public void newLoc(int newRow, int newCol){
+        theRow = newRow;
+        theCol = newCol;
+    }
 }

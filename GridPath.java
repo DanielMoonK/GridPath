@@ -3,8 +3,19 @@ public class GridPath
     /** Initialized in the constructor with distinct values that never change */
     private int[][] grid;
 
-    public GridPath(int[][] newGrid){
-        grid = mewGrid;
+    public GridPath(int[][] values){
+        grid = values;
+    }
+
+    public String toString(){
+        String s = "";
+        for (int row=0; row < grid.length; row++){
+            for (int col=0; col < grid.length; col++){
+                s += grid[row][col] + " ";
+            }
+            s += "\n";
+        }
+        return s;
     }
 
     /**
@@ -15,8 +26,10 @@ public class GridPath
     */
     public Location getNextLoc(int row, int col)
     {
+        Location nextLoc = new Location(0 ,0);
         if (row == 4 && col != 4){
-            return new Location(4, col + 1);
+            nextLoc.newLoc(4, col + 1);
+            return nextLoc;
         }
     }
 
@@ -26,8 +39,8 @@ public class GridPath
     * Preconditions: row is a valid row index and col is a valid column index in grid.
     * row and col do not specify the element in the last row and last column of grid.
     */
-    public int sumPath(int row, int col)
-    {
+    // public int sumPath(int row, int col)
+    // {
 
-    }
+    // }
 }
