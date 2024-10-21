@@ -18,6 +18,12 @@ public class GridPath
         return s;
     }
 
+    public void printLoc(Location currentLoc){
+        System.out.print(currentLoc.getRow());
+        System.out.print(" ");
+        System.out.println(currentLoc.getCol());
+    }
+
     /**
     * Returns the Location representing a neighbor of the grid element at row and col,
     * as described in part (a)
@@ -29,8 +35,19 @@ public class GridPath
         Location nextLoc = new Location(0 ,0);
         if (row == 4 && col != 4){
             nextLoc.newLoc(4, col + 1);
-            return nextLoc;
         }
+        else if(row != 4 && col == 4){
+            nextLoc.newLoc(row + 1, 4);
+        }
+        else if(row != 4 && col != 4){
+            if(grid[row + 1][col] > grid[row][col+1]){
+                nextLoc.newLoc(row+1, col);
+            }
+            else{
+                nextLoc.newLoc(row, col+1);
+            }
+       }
+        return nextLoc;
     }
 
     /**
