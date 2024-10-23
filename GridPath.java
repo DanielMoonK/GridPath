@@ -19,8 +19,9 @@ public class GridPath
     }
 
     public void printLoc(Location currentLoc){
+        System.out.print("Row: ");
         System.out.print(currentLoc.getRow());
-        System.out.print(" ");
+        System.out.print(" Col: ");
         System.out.println(currentLoc.getCol());
     }
 
@@ -40,7 +41,7 @@ public class GridPath
             nextLoc.newLoc(row + 1, 4);
         }
         else if(row != 4 && col != 4){
-            if(grid[row + 1][col] > grid[row][col+1]){
+            if(grid[row + 1][col] < grid[row][col+1]){
                 nextLoc.newLoc(row+1, col);
             }
             else{
@@ -56,8 +57,14 @@ public class GridPath
     * Preconditions: row is a valid row index and col is a valid column index in grid.
     * row and col do not specify the element in the last row and last column of grid.
     */
-    // public int sumPath(int row, int col)
-    // {
-
-    // }
+    public int sumPath(int row, int col)
+    {
+        Location nowLoc = new Location(row, col);
+        int sum = 0;
+        while(nowLoc.getRow() != grid.length - 1 && nowLoc.getCol() != grid[row].length - 1) {
+                sum += grid[nowLoc.getRow()][nowLoc.getCol()];
+                nowLoc = this.getNextLoc(nowLoc.getRow(), nowLoc.getCol());
+            }
+        return sum;
+    }
 }
