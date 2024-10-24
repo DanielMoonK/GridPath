@@ -61,10 +61,11 @@ public class GridPath
     {
         Location nowLoc = new Location(row, col);
         int sum = 0;
-        while(nowLoc.getRow() != grid.length - 1 && nowLoc.getCol() != grid[row].length - 1) {
+        while(!(nowLoc.getRow() == grid.length - 1 && nowLoc.getCol() == grid[row].length - 1)) {
                 sum += grid[nowLoc.getRow()][nowLoc.getCol()];
                 nowLoc = this.getNextLoc(nowLoc.getRow(), nowLoc.getCol());
             }
+        sum += grid[nowLoc.getRow()][nowLoc.getCol()];
         return sum;
     }
 }
