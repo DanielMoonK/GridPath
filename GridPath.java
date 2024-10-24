@@ -34,13 +34,13 @@ public class GridPath
     public Location getNextLoc(int row, int col)
     {
         Location nextLoc = new Location(0 ,0);
-        if (row == 4 && col != 4){
+        if (row == grid.length - 1 && col != grid[row].length - 1){
             nextLoc.newLoc(4, col + 1);
         }
-        else if(row != 4 && col == 4){
+        else if(row != grid.length - 1 && col == grid[row].length - 1){
             nextLoc.newLoc(row + 1, 4);
         }
-        else if(row != 4 && col != 4){
+        else if(row != grid.length - 1 && col != grid[row].length - 1){
             if(grid[row + 1][col] < grid[row][col+1]){
                 nextLoc.newLoc(row+1, col);
             }

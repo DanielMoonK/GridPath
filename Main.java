@@ -9,7 +9,7 @@ public class Main{
             {18, 22, 30, 25, 6}
         };
         GridPath one = new GridPath(nums);
-        System.out.println(one.toString());
+        // System.out.println(one.toString());
         one.printLoc(one.getNextLoc(0, 0));
         one.printLoc(one.getNextLoc(1, 3));
         one.printLoc(one.getNextLoc(2, 4));
